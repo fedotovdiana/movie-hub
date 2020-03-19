@@ -6,17 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    /
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
 
     <title>Star</title>
-
 </head>
 <body class="photo">
 <@header/>
-</div>
-
 <div class="container film">
     <div class="row">
         <div class="col-12">
@@ -25,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col-3">
-            <img src="../../front/img/${star.photo}" alt="..." class="img-thumbnail ">
+            <img src="/img/${star.photo}" alt="..." class="img-thumbnail ">
         </div>
 
         <div class="col-9">

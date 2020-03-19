@@ -17,4 +17,9 @@ public class ActorsServiceImpl implements ActorsService {
     public List<Actor> getActors() {
         return actorsRepository.findAll();
     }
+
+    @Override
+    public Actor getConcreteActor(Integer actorId) {
+        return actorsRepository.getOne(actorId);
+    }
 }

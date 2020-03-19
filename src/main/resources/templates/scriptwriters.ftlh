@@ -23,10 +23,10 @@
         <#list scriptwriters as s>
             <div class="col-md-3">
                 <div class="card mb-2">
-                    <a href="/star?scr_id=${s.id}"><img src="/img/${s.photo}" class="img-thumbnail" alt="..."></a>
+                    <a href="/scriptwriters/${s.id}"><img src="/img/${s.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
-                            <li><a href="/star?scr_id=${s.id}" class="reg">${s.name}</a></li>
+                            <li><a href="/scriptwriters/${s.id}" class="reg">${s.name}</a></li>
                         </ul>
                     </div>
                 </div>

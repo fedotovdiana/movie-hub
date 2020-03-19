@@ -5,5 +5,7 @@ import ru.itis.moviehub.models.Scriptwriter;
 import java.util.List;
 
 public interface ScriptwritersService {
-    public List<Scriptwriter> getScriptwriters();
+    List<Scriptwriter> getScriptwriters();
+
+    Scriptwriter getConcreteScriptwriter(Integer scriptwriterId);
 }

@@ -17,4 +17,9 @@ public class ScriptwritersServiceImpl implements ScriptwritersService {
     public List<Scriptwriter> getScriptwriters() {
         return scriptwritersRepository.findAll();
     }
+
+    @Override
+    public Scriptwriter getConcreteScriptwriter(Integer scriptwriterId) {
+        return scriptwritersRepository.getOne(scriptwriterId);
+    }
 }

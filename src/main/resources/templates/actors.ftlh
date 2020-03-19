@@ -23,10 +23,10 @@
         <#list actors as a>
             <div class="col-md-3">
                 <div class="card mb-2">
-                    <a href="/star?actor_id=${a.id}"><img src="/img/${a.photo}" class="img-thumbnail" alt="..."></a>
+                    <a href="/actors/${a.id}"><img src="/img/${a.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
-                            <li><a href="/star?actor_id=${a.id}" class="reg">${a.name}</a></li>
+                            <li><a href="/actors/${a.id}" class="reg">${a.name}</a></li>
                         </ul>
                     </div>
                 </div>

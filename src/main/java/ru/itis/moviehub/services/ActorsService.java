@@ -5,5 +5,7 @@ import ru.itis.moviehub.models.Actor;
 import java.util.List;
 
 public interface ActorsService {
-    public List<Actor> getActors();
+    List<Actor> getActors();
+
+    Actor getConcreteActor(Integer id);
 }

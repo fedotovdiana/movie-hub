@@ -23,10 +23,10 @@
         <#list producers as p>
             <div class="col-md-3">
                 <div class="card mb-2">
-                    <a href="/star?producer_id=${p.id}"><img src="/img/${p.photo}" class="img-thumbnail" alt="..."></a>
+                    <a href="/producers/${p.id}"><img src="/img/${p.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
-                            <li><a href="/star?producer_id=${p.id}" class="reg">${p.name}</a></li>
+                            <li><a href="/producers/${p.id}" class="reg">${p.name}</a></li>
                         </ul>
                     </div>
                 </div>

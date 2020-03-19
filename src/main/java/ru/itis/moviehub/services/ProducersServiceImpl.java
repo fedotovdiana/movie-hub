@@ -17,4 +17,9 @@ public class ProducersServiceImpl implements ProducersService {
     public List<Producer> getProducers() {
         return producersRepository.findAll();
     }
+
+    @Override
+    public Producer getConcreteProducer(Integer producerId) {
+        return producersRepository.getOne(producerId);
+    }
 }

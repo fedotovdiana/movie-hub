@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ProducersService {
     List<Producer> getProducers();
+
+    Producer getConcreteProducer(Integer producerId);
 }
