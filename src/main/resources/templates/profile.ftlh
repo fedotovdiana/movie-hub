@@ -6,8 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../../front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../front/css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    /
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
