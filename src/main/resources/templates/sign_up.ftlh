@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
-            <form class="form-horizontal form" action="sign_up" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal form" action="/signUp" method="post" enctype="multipart/form-data">
                 <span class="heading">Sign up</span>
                 <form>
                     <div class="form-group row">

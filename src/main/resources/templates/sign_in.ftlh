@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
-            <form class="form-horizontal form" action="http://localhost:8080/sign_in" method="post">
+            <form class="form-horizontal form" action="/signIn" method="post">
                 <span class="heading">Sign in</span>
                 <div class="form-group help">
                     <input type="login" class="form-control" name="login" id="inputLogin" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" placeholder="Login">
@@ -37,7 +37,7 @@
                     <input type="submit" class="btn btn-b btn-default" value="Sign in">
                 </div>
                 <span class="heading"></span>
-                <span>Don't have an account?  <a href="sign_up" class="reg">  Sign up</a></span>
+                <span>Don't have an account?  <a href="/signUp" class="reg">  Sign up</a></span>
             </form>
         </div>
     </div>

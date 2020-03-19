@@ -21,4 +21,11 @@ public class User {
     private String login;
     private String password;
     private String photo;
+    private String confirmCode;
+
+    @Enumerated(value = EnumType.STRING)
+    private State state;
+
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 }

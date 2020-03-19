@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.itis.moviehub.services.SignInService;
-import ru.itis.moviehub.services.SignInServiceImpl;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
