@@ -9,6 +9,6 @@
         <a class="p-2" href="producers">Producers</a>
         <a class="p-2" href="scriptwriters">Scriptwriters</a>
     </nav>
-    <a href="profile"> <img src="svg/person.svg" class="icon" alt="person"></a>
+    <a href="profile"> <img src="/svg/person.svg" class="icon" alt="person"></a>
 </div>
 </#macro>

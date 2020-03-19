@@ -13,18 +13,7 @@
     <title>Actors</title>
 </head>
 <body class="photo">
-<div class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm ">
-    <h1 class=" my-0 mr-md-auto font-weight-normal">Filmoteka</h1>
-    <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2" href="/afisha">Afisha</a>
-        <a class="p-2" href="/films">Films</a>
-        <a class="p-2" href="/top">Top</a>
-        <a class="p-2" href="/actors">Actors</a>
-        <a class="p-2" href="/producers">Producers</a>
-        <a class="p-2" href="/scriptwriters">Scriptwriters</a>
-    </nav>
-    <a href="/profile"> <img src="/static/svg/person.svg" class="icon" alt="person"></a>
-</div>
+<@header/>
 <section class="jumbotron text-center">
     <div class="container">
         <h2 class="jumbotron-heading">Actors</h2>
@@ -35,7 +24,7 @@
         <#list actors as a>
             <div class="col-md-3">
                 <div class="card mb-2">
-                    <a href="/star?actor_id=${a.id}"><img src="../../front/img/${a.photo}" class="img-thumbnail" alt="..."></a>
+                    <a href="/star?actor_id=${a.id}"><img src="/img/${a.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
                             <li><a href="/star?actor_id=${a.id}" class="reg">${a.name}</a></li>
