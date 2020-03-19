@@ -28,15 +28,18 @@ public class SignInController {
     @PostMapping("/signIn")
     public String signIn(@RequestParam("login") String login,
                          @RequestParam("password") String password,
+                         @RequestParam(value = "check", required = false) String check,
                          HttpServletResponse response) {
-        String cookieValue = signInService.signIn(login, password);
+        Boolean isNeedCookie = check != null;
+        String cookieValue = signInService.signIn(login, password, isNeedCookie);
 
         if (cookieValue == null) {
             return "redirect:/signIn?error";
         }
-
-        Cookie cookie = new Cookie("AuthCookie", cookieValue);
-        response.addCookie(cookie);
+        if (isNeedCookie) {
+            Cookie cookie = new Cookie("AuthCookie", cookieValue);
+            response.addCookie(cookie);
+        }
         return "redirect:/users";
     }
 }

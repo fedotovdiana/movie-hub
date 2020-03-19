@@ -32,7 +32,7 @@ public class SignUpServiceImpl implements SignUpService {
 
         usersRepository.save(user);
 
-        emailService.sendMail("Confirm", user.getName(), user.getConfirmCode(), user.getLogin());
+//        emailService.sendMail("Confirm", user.getName(), user.getConfirmCode(), user.getLogin());
     }
 }
 //    Part p = request.getPart("photo");

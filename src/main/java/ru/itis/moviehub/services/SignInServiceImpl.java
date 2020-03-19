@@ -19,19 +19,20 @@ public class SignInServiceImpl implements SignInService {
     private CookieValuesRepository cookieValuesRepository;
 
     @Override
-    public String signIn(String login, String password) {
+    public String signIn(String login, String password, Boolean isNeedCookie) {
         User user = usersRepository.findByLogin(login);
 
         String value = null;
-        if (user != null && user.getPassword().equals(password)) {
-            value = UUID.randomUUID().toString();
-            CookieValue cookieValue = CookieValue.builder()
-                    .value(value)
-                    .user(user)
-                    .build();
-            cookieValuesRepository.save(cookieValue);
+        if (isNeedCookie) {
+            if (user != null && user.getPassword().equals(password)) {
+                value = UUID.randomUUID().toString();
+                CookieValue cookieValue = CookieValue.builder()
+                        .value(value)
+                        .user(user)
+                        .build();
+                cookieValuesRepository.save(cookieValue);
+            }
         }
-
         return value;
     }
 }
