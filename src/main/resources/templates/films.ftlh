@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    /
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>Films</title>
@@ -32,22 +31,22 @@
                     function f() {
                         if ($("#query").val().length >= 1) {
                             $.ajax({
-                                url: "/dosearch",
-                                data: {"query": $("#query").val()},
+                                url: "/films/search",
+                                data: {"name": $("#query").val()},
                                 dataType: "json",
                                 success: function (msg) {
-                                    if (msg.objects.length > 0) {
+                                    if (msg.length > 0) {
                                         $("#res").html("");
-                                        for (var i = 0; i < msg.objects.length; i++) {
+                                        for (var i = 0; i < msg.length; i++) {
                                             $("#res").append("<div class=\"col-md-3\">\n" +
                                                 "                <div class=\"card mb-4\">\n" +
-                                                "                    <a href=\"/film?film_id=" + msg.objects[i].id + "&name=" + msg.objects[i].name + "\"><img src=\"../../front/img/" + msg.objects[i].photo + "\"\n" +
+                                                "                    <a href=\"/films/" + msg[i].id + "\"><img src=\"/img/" + msg[i].photo + "\"\n" +
                                                 "                                                                        class=\"img-thumbnail\" alt=\"...\"></a>\n" +
                                                 "                    <div class=\"card-body\">\n" +
                                                 "                        <ul class=\"list-unstyled text-center mb-2\">\n" +
                                                 "                            <li>\n" +
                                                 "                            </li>\n" +
-                                                "                            <li><a href=\"/film?film_id=" + msg.objects[i].id + "&name=" + msg.objects[i].name + "\" class=\"reg\">" + msg.objects[i].name + "<br>" + msg.objects[i].date + "</a>\n" +
+                                                "                            <li><a href=\"/films/" + msg[i].id + "\" class=\"reg\">" + msg[i].name + "<br>" + msg[i].date + "</a>\n" +
                                                 "                            </li>\n" +
                                                 "                        </ul>\n" +
                                                 "                    </div>\n" +
@@ -62,13 +61,14 @@
                         } else {
                             $("#res").html("<#list films as f><div class=\"col-md-3\">\n" +
                                 "                <div class=\"card mb-4\">\n" +
-                                "                    <a href=\"/film?film_id=${f.id}&name=${f.name}\"><img src=\"../../front/img/${f.photo}\"\n" +
-                                "                                                                        class=\"img-thumbnail\" alt=\"...\"></a>\n" +
+                                "                    <a href=\"/films/${f.id}\"><img src=\"/img/${f.photo}\"\n" +
+                                "                                      class=\"img-thumbnail\" alt=\"...\"></a>\n" +
                                 "                    <div class=\"card-body\">\n" +
                                 "                        <ul class=\"list-unstyled text-center mb-2\">\n" +
                                 "                            <li>\n" +
                                 "                            </li>\n" +
-                                "                            <li><a href=\"/film?film_id=${f.id}&name=${f.name}\" class=\"reg\">${f.name}<br>${f.date}</a>\n" +
+                                "                            <li><a href=\"/films/${f.id}\" \n" +
+                                "                                       class=\"reg\">${f.name}<br>${f.date}</a>\n" +
                                 "                            </li>\n" +
                                 "                        </ul>\n" +
                                 "                    </div>\n" +
@@ -84,15 +84,14 @@
         <#list films as f>
             <div class="col-md-3">
                 <div class="card mb-4">
-                    <a href="/film?film_id=${f.id}&name=${f.name}"><img src="../../front/img/${f.photo}"
-                                                                        class="img-thumbnail" alt="..."></a>
+                    <a href="/films/${f.id}"><img src="/img/${f.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
                             <li>
                                 <#--                                <h8 class="display-4 like">318 |</h8>-->
                                 <#--                                <h8 class="display-4 dislike">5</h8>-->
                             </li>
-                            <li><a href="/film?film_id=${f.id}&name=${f.name}" class="reg">${f.name}<br>${f.date}</a>
+                            <li><a href="/films/${f.id}" class="reg">${f.name}<br>${f.date}</a>
                             </li>
                         </ul>
                     </div>

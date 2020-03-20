@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface ActorsService {
     List<Actor> getActors();
-
     Actor getConcreteActor(Integer id);
 }

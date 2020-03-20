@@ -14,7 +14,6 @@
 </head>
 <body class="photo">
 <@header/>
-</div>
 <section class="jumbotron text-center">
     <div class="container">
         <h2 class="jumbotron-heading">Top films</h2>
