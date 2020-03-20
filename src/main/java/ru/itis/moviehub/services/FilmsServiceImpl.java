@@ -33,4 +33,10 @@ public class FilmsServiceImpl implements FilmsService {
     public List<Film> search(String name) {
         return filmsRepository.findAllByNameContainsIgnoreCase(name);
     }
+
+    @Override
+    public List<Film> getTopFilms() {
+        return filmsRepository.findTopFilms();
+    }
+
 }

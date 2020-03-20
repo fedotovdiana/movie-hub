@@ -24,14 +24,14 @@
         <#list films as f>
             <div class="col-md-3">
                 <div class="card mb-4">
-                    <a href="/film?film_id=${f.id}&name=${f.name}"><img src="../../front/img/${f.photo}" class="img-thumbnail" alt="..."></a>
+                    <a href="/films/${f.id}"><img src="/img/${f.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
                             <li>
 <#--                                <h8 class="display-4 like">318 |</h8>-->
 <#--                                <h8 class="display-4 dislike">5</h8>-->
                             </li>
-                            <li><a href="/film?film_id=${f.id}&name=${f.name}" class="reg">${f.name}<br>${f.country}<br>${f.date}</a></li>
+                            <li><a href="/films/${f.id}" class="reg">${f.name}<br>${f.country}<br>${f.date}</a></li>
                         </ul>
                     </div>
                 </div>
