@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.itis.moviehub.models.Film;
 import ru.itis.moviehub.repositories.FilmsRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -25,7 +26,7 @@ public class FilmsServiceImpl implements FilmsService {
 
     @Override
     public List<Film> getAfisha() {
-        return filmsRepository.getAfisha();
+        return filmsRepository.findAfisha(new Date());
     }
 
     @Override

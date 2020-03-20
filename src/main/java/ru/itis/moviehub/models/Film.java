@@ -4,6 +4,7 @@ package ru.itis.moviehub.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +20,8 @@ public class Film {
     private int id;
     private String name;
     private String country;
-    private String date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
     private String photo;
     private String text;
 }
