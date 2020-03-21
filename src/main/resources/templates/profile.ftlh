@@ -31,7 +31,6 @@
 </head>
 <body class="photo">
 <@header/>
-</div>
 <div class="container">
     <div class="row">
         <form class="form-horizontal profile">
@@ -51,9 +50,9 @@
                     <div class="col-md-4">
                         <h2> My checklists </h2>
                         <#list checklists as c>
-                            <div id="${c.id_checklist}">
-                                <p class="display-4"><a href="/checklist?checklist_id=${c.id_checklist}" class="reg">${c.name}  </a>
-                                    <span><img src="/svg/delete.svg" class="icon delete" name="${c.id_checklist}"
+                            <div id="${c.id}">
+                                <p class="display-4"><a href="/checklist/${c.id}" class="reg">${c.name}  </a>
+                                    <span><img src="/svg/delete.svg" class="icon delete" name="${c.id}"
                                                alt="delete"></span></p>
                             </div>
                         </#list>
