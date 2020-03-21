@@ -19,6 +19,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
             <form class="form-horizontal form" action="/signIn" method="post">
+                <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <span class="heading">Sign in</span>
                 <div class="form-group help">
                     <input type="login" class="form-control" name="login" id="inputLogin" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" placeholder="Login">
@@ -31,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <div class="main-checkbox">
-                        <input type="checkbox" id="checkbox1" name="check" checked/>
+                        <input type="checkbox" id="checkbox1" name="remember-me" checked/>
                         <label for="checkbox1"></label>
                     </div>
                     <span class="text">Remember me</span>

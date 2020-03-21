@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>Scripwriters</title>
+    <title>Scriptwriters</title>
 </head>
 <body class="photo">
 <@header/>
 <section class="jumbotron text-center">
     <div class="container">
-        <h2 class="jumbotron-heading">Scripwriters</h2>
+        <h2 class="jumbotron-heading">Scriptwriters</h2>
     </div>
 </section>
 <div class="container">

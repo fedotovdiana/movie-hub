@@ -7,6 +7,7 @@ import ru.itis.moviehub.models.User;
 import ru.itis.moviehub.repositories.CookieValuesRepository;
 import ru.itis.moviehub.repositories.UsersRepository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -20,15 +21,15 @@ public class SignInServiceImpl implements SignInService {
 
     @Override
     public String signIn(String login, String password, Boolean isNeedCookie) {
-        User user = usersRepository.findByLogin(login);
+        Optional<User> userOptional = usersRepository.findByLogin(login);
 
         String value = null;
         if (isNeedCookie) {
-            if (user != null && user.getPassword().equals(password)) {
+            if (userOptional.isPresent() && userOptional.get().getHashPassword().equals(password)) {
                 value = UUID.randomUUID().toString();
                 CookieValue cookieValue = CookieValue.builder()
                         .value(value)
-                        .user(user)
+                        .user(userOptional.get())
                         .build();
                 cookieValuesRepository.save(cookieValue);
             }

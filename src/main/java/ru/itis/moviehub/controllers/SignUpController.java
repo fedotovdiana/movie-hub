@@ -1,6 +1,7 @@
 package ru.itis.moviehub.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +15,11 @@ public class SignUpController {
     private SignUpService service;
 
     @GetMapping("/signUp")
-    public String getSignUpPage() {
-        return "sign_up";
+    public String getSignUpPage(Authentication authentication) {
+        if (authentication == null) {
+            return "sign_up";
+        }
+        return "redirect:/";
     }
 
     @PostMapping("/signUp")

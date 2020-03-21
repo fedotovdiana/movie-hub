@@ -13,7 +13,6 @@
 </head>
 <body class="photo">
 <@header/>
-</div>
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
@@ -21,6 +20,7 @@
             <form class="form-horizontal form" action="/signUp" method="post" enctype="multipart/form-data">
                 <span class="heading">Sign up</span>
                 <form>
+                    <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <div class="form-group row">
                         <label for="staticName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">

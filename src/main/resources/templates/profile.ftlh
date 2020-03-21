@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    /
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -40,7 +39,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="${user.photo}" class="img-thumbnail rounded">
+                        <#--                        <img src="${user.photo}" class="img-thumbnail rounded">-->
                         <button type="submit" class="btn mb-2"><a class="pro" href="/settings">Settings</a></button>
                         <button type="submit" class="btn mb-2 out"><a class="pro" href="/logout">Sign out</a></button>
                     </div>
@@ -54,7 +53,8 @@
                         <#list checklists as c>
                             <div id="${c.id_checklist}">
                                 <p class="display-4"><a href="/checklist?checklist_id=${c.id_checklist}" class="reg">${c.name}  </a>
-                                    <span><img src="../../front/svg/delete.svg" class="icon delete" name="${c.id_checklist}" alt="delete"></span></p>
+                                    <span><img src="/svg/delete.svg" class="icon delete" name="${c.id_checklist}"
+                                               alt="delete"></span></p>
                             </div>
                         </#list>
                     </div>

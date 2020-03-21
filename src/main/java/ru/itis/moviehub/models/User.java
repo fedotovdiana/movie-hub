@@ -19,7 +19,8 @@ public class User {
     private Long id;
     private String name;
     private String login;
-    private String password;
+    @Column(name = "password")
+    private String hashPassword;
     private String photo;
     private String confirmCode;
 

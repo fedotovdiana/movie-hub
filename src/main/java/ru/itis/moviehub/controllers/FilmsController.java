@@ -1,6 +1,7 @@
 package ru.itis.moviehub.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class FilmsController {
         return "film";
     }
 
+    @PreAuthorize("permitAll()")
     @RequestMapping(path = "/search", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public List<Film> searchFilms(@RequestParam("name") String name) {

@@ -1,6 +1,7 @@
 package ru.itis.moviehub.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import ru.itis.moviehub.dto.SignUpDto;
 import ru.itis.moviehub.models.Role;
@@ -9,6 +10,7 @@ import ru.itis.moviehub.models.User;
 import ru.itis.moviehub.repositories.UsersRepository;
 
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
 
 @Component
 public class SignUpServiceImpl implements SignUpService {
@@ -19,11 +21,17 @@ public class SignUpServiceImpl implements SignUpService {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ExecutorService executorService;
+
     @Override
     public void signUp(SignUpDto form) {
         User user = User.builder()
                 .login(form.getLogin())
-                .password(form.getPassword())
+                .hashPassword(passwordEncoder.encode(form.getPassword()))
                 .name(form.getName())
                 .state(State.NOT_CONFIRMED)
                 .role(Role.USER)
@@ -32,7 +40,8 @@ public class SignUpServiceImpl implements SignUpService {
 
         usersRepository.save(user);
 
-//        emailService.sendMail("Confirm", user.getName(), user.getConfirmCode(), user.getLogin());
+        executorService.submit(() ->
+                emailService.sendMail("Confirm", user.getName(), user.getConfirmCode(), user.getLogin()));
     }
 }
 //    Part p = request.getPart("photo");
