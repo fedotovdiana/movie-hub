@@ -28,12 +28,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        http.csrf().disable();
+
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/signUp", "/films", "/logout").permitAll()
                 .antMatchers("/confirm/**").permitAll()
-                .antMatchers("/users/**").hasAuthority("ADMIN")
                 .antMatchers("/users").hasAuthority("ADMIN")
+                .antMatchers("/users/**").hasAuthority("ADMIN")
                 .antMatchers("/profile").authenticated();
 
         http.formLogin()
@@ -41,7 +43,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/profile")
                 .failureUrl("/signIn?error")
                 .usernameParameter("login")
-                .passwordParameter("password")
                 .permitAll();
 
         http.rememberMe()
@@ -49,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.logout()
                 .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/signIn")
                 .permitAll();
     }
 }

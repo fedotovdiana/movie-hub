@@ -34,7 +34,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .hashPassword(passwordEncoder.encode(form.getPassword()))
                 .name(form.getName())
                 .state(State.NOT_CONFIRMED)
-                .role(Role.USER)
+                .role(Role.ADMIN)
                 .confirmCode(UUID.randomUUID().toString())
                 .build();
 

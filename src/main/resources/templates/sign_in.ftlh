@@ -19,8 +19,9 @@
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
             <form class="form-horizontal form" action="/signIn" method="post">
-                <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                <#--                <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
                 <span class="heading">Sign in</span>
+                <#if error??><h5>Error</h5></#if>
                 <div class="form-group help">
                     <input type="login" class="form-control" name="login" id="inputLogin" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" placeholder="Login">
                     <i class="fa fa-user"></i>

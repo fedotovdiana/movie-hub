@@ -40,7 +40,8 @@
                     <div class="col-md-4">
                         <#--                        <img src="${user.photo}" class="img-thumbnail rounded">-->
                         <button type="submit" class="btn mb-2"><a class="pro" href="/settings">Settings</a></button>
-                        <button type="submit" class="btn mb-2 out"><a class="pro" href="/logout">Sign out</a></button>
+
+                        <button type="submit" class="btn mb-2"><a class="pro" href="/logout">Logout</a></button>
                     </div>
                     <div class="col-md-4 inform">
                         <h3><b>Name: </b>${user.name}</h3>
