@@ -36,6 +36,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .state(State.NOT_CONFIRMED)
                 .role(Role.ADMIN)
                 .confirmCode(UUID.randomUUID().toString())
+                .photo(form.getPhoto())
                 .build();
 
         usersRepository.save(user);
@@ -44,27 +45,3 @@ public class SignUpServiceImpl implements SignUpService {
                 emailService.sendMail("Confirm", user.getName(), user.getConfirmCode(), user.getLogin()));
     }
 }
-//    Part p = request.getPart("photo");
-//    String localdir = "uploads";
-//    String pathDir = getServletContext().getRealPath("") + File.separator + localdir;
-//    File dir = new File(pathDir);
-//        if (!dir.exists()) {
-//                dir.mkdir();
-//                }
-//                String[] filename_data = p.getSubmittedFileName().split("\\.");
-//                String filename = Math.random() + "." + filename_data[filename_data.length - 1];
-//                String fullpath = pathDir + File.separator + filename;
-//                p.write(fullpath);
-//                String photo = "" + localdir + "/" + filename;
-//
-//                Cookie cookie = new Cookie("user", login);
-//                cookie.setMaxAge(60 * 60 * 24 * 14);
-//                response.addCookie(cookie);
-//                try {
-//                userService.register(name, login, password, photo);
-//                } catch (NoSuchAlgorithmException e) {
-//                e.printStackTrace();
-//                }
-//                User user = userService.getUser(login);
-//                request.getSession().setAttribute("user", user);
-//                response.sendRedirect("/films");
