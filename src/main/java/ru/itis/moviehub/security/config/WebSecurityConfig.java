@@ -32,10 +32,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/signUp", "/films", "/logout").permitAll()
+                .antMatchers("/signUp").permitAll()
+                .antMatchers("/films/**").permitAll()
+                .antMatchers("/top").permitAll()
+                .antMatchers("/actors/**").permitAll()
+                .antMatchers("/top").permitAll()
+                .antMatchers("/scriptwriters/**").permitAll()
+                .antMatchers("/producers/**").permitAll()
+                .antMatchers("/afisha").permitAll()
                 .antMatchers("/confirm/**").permitAll()
-                .antMatchers("/users").hasAuthority("ADMIN")
                 .antMatchers("/users/**").hasAuthority("ADMIN")
+                .antMatchers("/settings").authenticated()
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/files").permitAll();
 

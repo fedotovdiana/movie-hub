@@ -38,7 +38,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
-                        <#--                        <img src="${user.photo}" class="img-thumbnail rounded">-->
+                        <img src="${user.photo}" class="img-thumbnail rounded">
                         <button type="submit" class="btn mb-2"><a class="pro" href="/settings">Settings</a></button>
 
                         <button type="submit" class="btn mb-2"><a class="pro" href="/logout">Logout</a></button>

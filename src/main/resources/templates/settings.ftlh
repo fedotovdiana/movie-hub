@@ -7,19 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    /
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>Settings</title>
 </head>
 <body class="photo">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <@header/>
-</div>
+<script>
+    function sendFile() {
+        let formData = new FormData();
+        let files = ($('#file'))[0]['files'];
+        [].forEach.call(files, function (file, i, files) {
+            formData.append("file", file);
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/files",
+            data: formData,
+            processData: false,
+            contentType: false
+        })
+            .done(function (response) {
+                let fileUrl = 'http://localhost/files/' + response;
+                $('#photo').attr('value', '' + fileUrl);
+            })
+            .fail(function () {
+                alert('Error')
+            });
+    }
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
-            <form class="form-horizontal form" action="settings" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal form" action="/settings" method="post" enctype="multipart/form-data">
                 <span class="heading">Settings</span>
                 <form>
                     <div class="form-group row">
@@ -43,16 +66,18 @@
                     <div class="form-group row">
                         <label for="FormControlFile" class="col-sm-2 col-xl-4 col-md-3 col-form-label">Photo</label>
                         <div class="col-sm-10 col-xl-8 col-md-9">
-                            <input type="file" readonly class="form-control-file" name="photo" id="FormControlFile"
-                                   value="${user.photo}">
+                            <#--                            <input type="file" readonly class="form-control-file" name="photo" id="FormControlFile"-->
+                            <#--                                   value="${user.photo}">-->
+                            <input type="file" id="file" name="file" placeholder="Name..."/>
+                            <input type="button" onclick="sendFile()" class="btn btn-primary mb-2" value="Ok"/>
                         </div>
                     </div>
-                    <#--                    <button type="submit" class="btn btn-primary mb-2">СОХРАНИТЬ</button>-->
+                    <input type="hidden" id="photo" name="photo" value=" ">
                     <input type="submit" class="btn btn-primary mb-2" value="Save">
                 </form>
             </form>
         </div>
     </div>
 </div>
-<@lib/>
+<#--<@lib/>-->
 </body>
