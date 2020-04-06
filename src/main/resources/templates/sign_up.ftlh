@@ -1,5 +1,7 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>Sign up</title>
+    <title><@spring.message 'signUp.page.signUp'/></title>
 </head>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <body class="photo">
@@ -46,25 +48,28 @@
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
             <form class="form-horizontal form" action="/signUp" method="post" enctype="multipart/form-data">
-                <span class="heading">Sign up</span>
+                <span class="heading"><@spring.message 'signUp.page.signUp'/></span>
                 <form>
                     <#--                    <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
                     <div class="form-group row">
-                        <label for="staticName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="staticName"
+                               class="col-sm-2 col-form-label"><@spring.message 'signUp.page.name'/></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="staticName" name="name"
                                    placeholder="Enter name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-2 col-form-label">Login</label>
+                        <label for="staticEmail"
+                               class="col-sm-2 col-form-label"><@spring.message 'signUp.page.login'/></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="staticEmail" name="login"
                                    placeholder="email@example.com">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <label for="inputPassword"
+                               class="col-sm-2 col-form-label"><@spring.message 'signUp.page.password'/></label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="inputPassword" name="password"
                                    placeholder="Password">

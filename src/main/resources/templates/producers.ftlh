@@ -1,5 +1,7 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,13 +11,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>Producers</title>
+    <title><@spring.message 'header.producers'/></title>
 </head>
 <body class="photo">
 <@header/>
 <section class="jumbotron text-center">
     <div class="container">
-        <h2 class="jumbotron-heading">Producers</h2>
+        <h2 class="jumbotron-heading"><@spring.message 'header.producers'/></h2>
     </div>
 </section>
 <div class="container">

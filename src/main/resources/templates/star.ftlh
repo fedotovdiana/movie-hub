@@ -1,5 +1,7 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-    <title>Star</title>
+    <title><@spring.message 'star.page.star'/></title>
 </head>
 <body class="photo">
 <@header/>
@@ -28,11 +30,11 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <th scope="row">Birthday:</th>
+                    <th scope="row"><@spring.message 'star.page.birthday'/></th>
                     <td>${star.birthday}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Country:</th>
+                    <th scope="row"><@spring.message 'star.page.country'/></th>
                     <td>${star.country}</td>
                 </tr>
                 </tbody>

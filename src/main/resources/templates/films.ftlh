@@ -1,5 +1,6 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+
 <!doctype html>
 <html lang="en">
 <head>

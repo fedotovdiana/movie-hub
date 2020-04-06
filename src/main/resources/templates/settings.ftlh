@@ -1,5 +1,7 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>Settings</title>
+    <title><@spring.message 'settings.page.settings'/></title>
 </head>
 <body class="photo">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -43,28 +45,32 @@
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
             <form class="form-horizontal form" action="/settings" method="post" enctype="multipart/form-data">
-                <span class="heading">Settings</span>
+                <span class="heading"><@spring.message 'settings.page.settings'/></span>
                 <form>
                     <div class="form-group row">
-                        <label for="staticName" class="col-sm-2 col-xl-4 col-md-3 col-form-label">Name</label>
+                        <label for="staticName"
+                               class="col-sm-2 col-xl-4 col-md-3 col-form-label"><@spring.message 'signUp.page.name'/></label>
                         <div class="col-sm-10 col-xl-8 col-md-9">
                             <input type="text" class="form-control" id="staticName" name="name" value="${user.name}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-2 col-xl-4 col-md-3 col-form-label">Login</label>
+                        <label for="staticEmail"
+                               class="col-sm-2 col-xl-4 col-md-3 col-form-label"><@spring.message 'signUp.page.login'/></label>
                         <div class="col-sm-10 col-xl-8 col-md-9">
                             <input type="text" class="form-control" id="staticEmail" name="login" value="${user.login}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-xl-4 col-md-3 col-form-label">Password</label>
+                        <label for="inputPassword"
+                               class="col-sm-2 col-xl-4 col-md-3 col-form-label"><@spring.message 'signUp.page.password'/></label>
                         <div class="col-sm-10 col-xl-8 col-md-9">
                             <input type="password" class="form-control" name="password" id="inputPassword">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="FormControlFile" class="col-sm-2 col-xl-4 col-md-3 col-form-label">Photo</label>
+                        <label for="FormControlFile"
+                               class="col-sm-2 col-xl-4 col-md-3 col-form-label"><@spring.message 'signUp.page.photo'/></label>
                         <div class="col-sm-10 col-xl-8 col-md-9">
                             <#--                            <input type="file" readonly class="form-control-file" name="photo" id="FormControlFile"-->
                             <#--                                   value="${user.photo}">-->

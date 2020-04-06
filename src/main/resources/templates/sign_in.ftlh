@@ -1,5 +1,6 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
 
 <!doctype html>
 <html lang="en">
@@ -7,10 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">/
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    /
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>Sign in</title>
+    <title><@spring.message 'signIn.page.signIn'/></title>
 </head>
 <body class="photo">
 <@header/>
@@ -20,14 +22,17 @@
         <div class="col-md-offset-5 col-md-6">
             <form class="form-horizontal form" action="/signIn" method="post">
                 <#--                <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
-                <span class="heading">Sign in</span>
-                <#if error??><h5>Error</h5></#if>
+                <span class="heading"><@spring.message 'signIn.page.signIn'/></span>
+                <#if error??><h5><@spring.message 'signIn.page.error'/></h5></#if>
                 <div class="form-group help">
-                    <input type="login" class="form-control" name="login" id="inputLogin" required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" placeholder="Login">
+                    <input type="login" class="form-control" name="login" id="inputLogin" required
+                           pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"
+                           placeholder="Login">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
-                    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="inputPassword"
+                           placeholder="Password">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
@@ -36,11 +41,12 @@
                         <input type="checkbox" id="checkbox1" name="remember-me" checked/>
                         <label for="checkbox1"></label>
                     </div>
-                    <span class="text">Remember me</span>
+                    <span class="text"><@spring.message 'signIn.page.rememberMe'/></span>
                     <input type="submit" class="btn btn-b btn-default" value="Sign in">
                 </div>
                 <span class="heading"></span>
-                <span>Don't have an account?  <a href="/signUp" class="reg">  Sign up</a></span>
+                <span><@spring.message 'signIn.page.dont.have.account'/><a href="/signUp"
+                                                                           class="reg">  <@spring.message 'signUp.page.signUp'/></a></span>
             </form>
         </div>
     </div>

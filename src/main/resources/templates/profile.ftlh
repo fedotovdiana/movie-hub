@@ -1,5 +1,7 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,29 +29,31 @@
             });
         });
     </script>
-    <title>Profile</title>
+    <title><@spring.message 'profile.page.profile'/></title>
 </head>
 <body class="photo">
 <@header/>
 <div class="container">
     <div class="row">
         <form class="form-horizontal profile">
-            <h2 class="heading">Profile</h2>
+            <h2 class="heading"><@spring.message 'profile.page.profile'/></h2>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
                         <img src="${user.photo}" class="img-thumbnail rounded">
-                        <button type="submit" class="btn mb-2"><a class="pro" href="/settings">Settings</a></button>
+                        <button type="submit" class="btn mb-2"><a class="pro"
+                                                                  href="/settings"><@spring.message 'settings.page.settings'/></a>
+                        </button>
 
                         <button type="submit" class="btn mb-2"><a class="pro" href="/logout">Logout</a></button>
                     </div>
                     <div class="col-md-4 inform">
-                        <h3><b>Name: </b>${user.name}</h3>
+                        <h3><b><@spring.message 'profile.page.name'/></b>${user.name}</h3>
                         <hr>
-                        <h3><b>Login: </b>${user.login}</h3>
+                        <h3><b><@spring.message 'profile.page.login'/></b>${user.login}</h3>
                     </div>
                     <div class="col-md-4">
-                        <h2> My checklists </h2>
+                        <h2><@spring.message 'profile.page.checklists'/></h2>
                         <#list checklists as c>
                             <div id="${c.id}">
                                 <p class="display-4"><a href="/checklist/${c.id}" class="reg">${c.name}  </a>
