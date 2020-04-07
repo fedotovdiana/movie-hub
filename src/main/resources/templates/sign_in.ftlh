@@ -27,12 +27,12 @@
                 <div class="form-group help">
                     <input type="login" class="form-control" name="login" id="inputLogin" required
                            pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"
-                           placeholder="Login">
+                           placeholder="<@spring.message 'signUp.page.login'/>">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
                     <input type="password" class="form-control" name="password" id="inputPassword"
-                           placeholder="Password">
+                           placeholder="<@spring.message 'signUp.page.password'/>">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
@@ -42,11 +42,11 @@
                         <label for="checkbox1"></label>
                     </div>
                     <span class="text"><@spring.message 'signIn.page.rememberMe'/></span>
-                    <input type="submit" class="btn btn-b btn-default" value="Sign in">
+                    <input type="submit" class="btn btn-b btn-default" value="<@spring.message 'signIn.page.signIn'/>">
                 </div>
                 <span class="heading"></span>
                 <span><@spring.message 'signIn.page.dont.have.account'/><a href="/signUp"
-                                                                           class="reg">  <@spring.message 'signUp.page.signUp'/></a></span>
+                                                                           class="reg"> <@spring.message 'signUp.page.signUp'/></a></span>
             </form>
         </div>
     </div>

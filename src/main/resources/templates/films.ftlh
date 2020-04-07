@@ -1,5 +1,6 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
 
 <!doctype html>
 <html lang="en">
@@ -10,13 +11,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <title>Films</title>
+    <title><@spring.message 'header.films'/></title>
 </head>
 <body class="photo">
 <@header/>
 <section class="jumbotron text-center">
     <div class="container">
-        <h2 class="jumbotron-heading">Films</h2>
+        <h2 class="jumbotron-heading"><@spring.message 'header.films'/></h2>
     </div>
 </section>
 <div class="container">
@@ -25,7 +26,8 @@
             <div>
                 <div class="col-auto my-1" >
                     <div class="form-group help">
-                        <input type="text" class="form-control" id="query" oninput="f()" placeholder="Find films...">
+                        <input type="text" class="form-control" id="query" oninput="f()"
+                               placeholder="<@spring.message 'films.page.find'/>">
                     </div>
                 </div>
                 <script type="application/javascript">
@@ -55,7 +57,7 @@
                                                 "            </div>");
                                         }
                                     } else {
-                                        $("#res").html("<h2><a href='#'>No results</a></h2>");
+                                        $("#res").html("<h2><a href='#'><@spring.message 'films.page.result'/></a></h2>");
                                     }
                                 }
                             })

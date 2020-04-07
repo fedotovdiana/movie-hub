@@ -56,7 +56,7 @@
                                class="col-sm-2 col-form-label"><@spring.message 'signUp.page.name'/></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="staticName" name="name"
-                                   placeholder="Enter name">
+                                   placeholder="<@spring.message 'signUp.page.name'/>">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -64,7 +64,7 @@
                                class="col-sm-2 col-form-label"><@spring.message 'signUp.page.login'/></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="staticEmail" name="login"
-                                   placeholder="email@example.com">
+                                   placeholder="<@spring.message 'signUp.page.login'/>">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -72,12 +72,13 @@
                                class="col-sm-2 col-form-label"><@spring.message 'signUp.page.password'/></label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="inputPassword" name="password"
-                                   placeholder="Password">
+                                   placeholder="<@spring.message 'signUp.page.password'/>">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <input type="file" id="file" name="file" placeholder="Name..."/>
-                        <input type="button" onclick="sendFile()" class="btn btn-primary mb-2" value="Ok"/>
+                        <input type="file" id="file" name="file" placeholder="<@spring.message 'signUp.page.name'/>"/>
+                        <input type="button" onclick="sendFile()" class="btn btn-primary mb-2"
+                               value="<@spring.message 'signUp.page.ok'/>"/>
                     </div>
                     <input type="hidden" id="photo" name="photo" value=" ">
                     <#--                    <div class="form-group row">-->
@@ -87,7 +88,7 @@
                     <#--                        </div>-->
                     <#--                    </div>-->
                     <#--                    <button type="submit" class="btn btn-primary mb-2">Sign up</button>-->
-                    <input type="submit" class="btn btn-primary mb-2" value="Sign up">
+                    <input type="submit" class="btn btn-primary mb-2" value="<@spring.message 'signUp.page.signUp'/>">
                 </form>
             </form>
         </div>

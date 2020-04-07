@@ -1,5 +1,6 @@
 <#include 'header.ftlh'>
 <#include 'libraries.ftlh'>
+<#import "spring.ftl" as spring />
 
 <!doctype html>
 <html lang="en">

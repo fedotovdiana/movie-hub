@@ -45,7 +45,9 @@
                                                                   href="/settings"><@spring.message 'settings.page.settings'/></a>
                         </button>
 
-                        <button type="submit" class="btn mb-2"><a class="pro" href="/logout">Logout</a></button>
+                        <button type="submit" class="btn mb-2"><a class="pro"
+                                                                  href="/logout"><@spring.message 'profile.page.logout'/></a>
+                        </button>
                     </div>
                     <div class="col-md-4 inform">
                         <h3><b><@spring.message 'profile.page.name'/></b>${user.name}</h3>
