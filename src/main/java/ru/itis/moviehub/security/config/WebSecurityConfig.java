@@ -44,7 +44,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/**").hasAuthority("ADMIN")
                 .antMatchers("/settings").authenticated()
                 .antMatchers("/profile").authenticated()
-                .antMatchers("/files").permitAll();
+                .antMatchers("/files").permitAll()
+                .antMatchers("/like").authenticated()
+                .antMatchers("/dislike").authenticated();
+
 
         http.formLogin()
                 .loginPage("/signIn")
@@ -62,3 +65,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 }
+
+//https://diana.fedotova.2000@mail.ru:BteGOsg8EB7VwgPJScAuboq0C3mM@gate.smsaero.ru/v2/sms/send?number=79869202913&text=Diana&sign=SMS Aero&channel=DIRECT

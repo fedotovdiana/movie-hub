@@ -9,6 +9,5 @@ public interface FilmsService {
     Film getConcreteFilm(Integer id);
     List<Film> getAfisha();
     List<Film> search(String name);
-
     List<Film> getTopFilms();
 }

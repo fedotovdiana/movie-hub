@@ -11,6 +11,7 @@
 <body>
 <#if isConfirmed == true>
     <h1><@spring.message 'confirm.page.confirmed'/></h1>
+    <h3><a href="/signIn" class="reg"> <@spring.message 'signIn.page.signIn'/></a></h3>
 <#else>
     <h1><@spring.message 'confirm.page.error'/></h1>
 </#if>
