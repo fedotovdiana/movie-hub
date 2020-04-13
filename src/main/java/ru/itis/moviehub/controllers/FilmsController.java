@@ -32,10 +32,16 @@ public class FilmsController {
     }
 
     @GetMapping("/{film-id}")
-    public String getConcreteFilm(@PathVariable("film-id") Integer filmId, Model model) {
+    public String getConcreteFilm(@PathVariable("film-id") Integer filmId, Authentication authentication, Model model) {
+        User user = null;
+        if (authentication != null) {
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            user = userDetails.getUser();
+        }
         Film film = filmsService.getConcreteFilm(filmId);
         Long likes = likesService.getLikes(filmId);
         Long dislikes = likesService.getDislikes(filmId);
+        model.addAttribute("user", user);
         model.addAttribute("film", film);
         model.addAttribute("likes", likes);
         model.addAttribute("dislikes", dislikes);
@@ -50,7 +56,7 @@ public class FilmsController {
     }
 
     @PostMapping(path = "/like")
-    public void addLike(@RequestParam("film_id") Integer filmId, Authentication authentication, Model model) {
+    public void addLike(@RequestParam("film_id") Integer filmId, Authentication authentication) {
         System.out.println(filmId + "ddddddddddddddd");
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();
@@ -59,7 +65,7 @@ public class FilmsController {
     }
 
     @PostMapping(path = "/dislike")
-    public void addDislike(@RequestParam("film_id") Integer filmId, Authentication authentication, Model model) {
+    public void addDislike(@RequestParam("film_id") Integer filmId, Authentication authentication) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();
         Film film = filmsService.getConcreteFilm(filmId);

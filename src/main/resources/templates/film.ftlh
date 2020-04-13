@@ -9,11 +9,15 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <script type="application/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
-    <#--        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
-    <#--            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
-    <#--            crossorigin="anonymous"></script>-->
-    <#--        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <#--    <script type="application/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <#--    <script type="application/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>-->
     <title>Film</title>
 </head>
 <body class="photo">
@@ -82,10 +86,11 @@
         $('#btn_like').click(function () {
             $.ajax({
                 type: "post",
-                url: "/like",
+                url: "/films/like",
                 data: {
                     "film_id": "${film.id}"
                 },
+                dataType: "json",
                 success: function () {
                     $('#btn_like').val((parseInt($('#btn_like').val()) + 1) + " likes");
                     $('#btn_like').attr("disabled", 'disabled');
@@ -93,14 +98,15 @@
             });
         });
         $('#btn_dislike').click(function () {
-            alert("Click");
             $.ajax({
                 type: "post",
-                url: "/dislike",
+                url: "/films/dislike",
                 data: {
                     "film_id": "${film.id}"
                 },
+                dataType: "json",
                 success: function () {
+                    alert("Click");
                     $('#btn_dislike').val((parseInt($('#btn_dislike').val()) + 1) + " dislikes");
                     $('#btn_dislike').attr("disabled", 'disabled');
                 }
@@ -117,7 +123,8 @@
     <div class="row">
         <div class="col-3">
             <img src="/img/${film.photo}" alt="..." class="img-thumbnail ">
-            <div class="input-group">
+            <#if user?has_content>
+                <div class="input-group">
                 <#if checklists?has_content>
                     <div>
                         <select class="custom-select" id="selector">
@@ -138,8 +145,9 @@
                     <input type="button" class="btn btn-primary btn-pri" id="btn_add_to_new" value="To new checklist"/>
                 </div>
             </div>
-            <input type="button" class="btn btn-primary btn-pri" id="btn_like" value="${likes} likes">
-            <input type="button" class="btn btn-primary btn-pri" id="btn_dislike" value="${dislikes} dislikes">
+                <input type="button" class="btn btn-primary btn-pri" id="btn_like" value="${likes}">
+                <input type="button" class="btn btn-primary btn-pri" id="btn_dislike" value="${dislikes}">
+            </#if>
         </div>
     </div>
     <#--        <div class="col-9">-->
@@ -246,11 +254,5 @@
     <#--        </div>-->
     <#--    </#if>-->
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 </body>
 </html>
