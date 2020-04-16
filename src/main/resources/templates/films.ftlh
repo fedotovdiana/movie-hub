@@ -24,7 +24,7 @@
     <div class="row">
         <form>
             <div>
-                <div class="col-auto my-1" >
+                <div class="col-auto my-1">
                     <div class="form-group help">
                         <input type="text" class="form-control" id="query" oninput="f()"
                                placeholder="<@spring.message 'films.page.find'/>">
@@ -35,8 +35,11 @@
                         if ($("#query").val().length >= 1) {
                             $.ajax({
                                 url: "/films/search",
-                                data: {"name": $("#query").val()},
-                                dataType: "json",
+                                data: {
+                                    "query": $("#query").val(),
+                                    "page": 0,
+                                    "size": 4
+                                },
                                 success: function (msg) {
                                     if (msg.length > 0) {
                                         $("#res").html("");
@@ -49,7 +52,7 @@
                                                 "                        <ul class=\"list-unstyled text-center mb-2\">\n" +
                                                 "                            <li>\n" +
                                                 "                            </li>\n" +
-                                                "                            <li><a href=\"/films/" + msg[i].id + "\" class=\"reg\">" + msg[i].name + "<br>" + msg[i].date + "</a>\n" +
+                                                "                            <li><a href=\"/films/" + msg[i].id + "\" class=\"reg\">" + msg[i].name + "<br>" + msg[i].country + "</a>\n" +
                                                 "                            </li>\n" +
                                                 "                        </ul>\n" +
                                                 "                    </div>\n" +
@@ -71,7 +74,7 @@
                                 "                            <li>\n" +
                                 "                            </li>\n" +
                                 "                            <li><a href=\"/films/${f.id}\" \n" +
-                                "                                       class=\"reg\">${f.name}<br>${f.date}</a>\n" +
+                                "                                       class=\"reg\">${f.name}<br>${f.country}</a>\n" +
                                 "                            </li>\n" +
                                 "                        </ul>\n" +
                                 "                    </div>\n" +
@@ -94,7 +97,7 @@
                                 <#--                                <h8 class="display-4 like">318 |</h8>-->
                                 <#--                                <h8 class="display-4 dislike">5</h8>-->
                             </li>
-                            <li><a href="/films/${f.id}" class="reg">${f.name}<br>${f.date}</a>
+                            <li><a href="/films/${f.id}" class="reg">${f.name}<br>${f.country}</a>
                             </li>
                         </ul>
                     </div>
@@ -115,30 +118,3 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
-
-<#--                <div class="col-auto my-1">-->
-<#--                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">-->
-<#--                        <option selected>Countries</option>-->
-<#--                        <option value="1">c1</option>-->
-<#--                        <option value="2">c2</option>-->
-<#--                        <option value="3">c3</option>-->
-<#--                        <option value="4">c4</option>-->
-<#--                    </select>-->
-<#--                </div>-->
-<#--                <div class="col-auto my-1">-->
-<#--                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2">-->
-<#--                        <option selected>Year</option>-->
-<#--                        <option value="1">2019</option>-->
-<#--                        <option value="2">2018</option>-->
-<#--                        <option value="3">2017</option>-->
-<#--                        <option value="4">2016</option>-->
-<#--                        <option value="5">2015</option>-->
-<#--                    </select>-->
-<#--                </div>-->
-<#--                <div class="col-auto my-1">-->
-<#--                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect3">-->
-<#--                        <option selected>Popularity</option>-->
-<#--                        <option value="1">Date</option>-->
-<#--                    </select>-->
-<#--                </div>-->
-<#--                <button type="button" class="btn btn-b btn-default">Find</button>-->

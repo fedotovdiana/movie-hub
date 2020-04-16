@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.itis.moviehub.dto.FilmSearchResult;
 import ru.itis.moviehub.models.*;
 import ru.itis.moviehub.security.details.UserDetailsImpl;
 import ru.itis.moviehub.services.*;
@@ -12,7 +13,7 @@ import ru.itis.moviehub.services.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("films")
+@RequestMapping("/films")
 public class FilmsController {
 
     @Autowired
@@ -65,10 +66,13 @@ public class FilmsController {
         return "film";
     }
 
-    @RequestMapping(path = "/search", produces = "application/json; charset=UTF-8")
+    @GetMapping(path = "/search")
     @ResponseBody
-    public List<Film> searchFilms(@RequestParam("name") String name) {
-        return filmsService.search(name);
+    public List<Film> searchFilms(@RequestParam("query") String query,
+                                  @RequestParam("page") Integer page,
+                                  @RequestParam("size") Integer size) {
+        FilmSearchResult result = filmsService.search(query, page, size);
+        return result.getFilms();
     }
 
     @PostMapping(path = "/like")
