@@ -1,14 +1,14 @@
 package ru.itis.moviehub.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import ru.itis.moviehub.models.Checklist;
-import ru.itis.moviehub.models.User;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface ChecklistsRepository extends JpaRepository<Checklist, Integer> {
+public interface ChecklistsRepository extends JpaRepository<Checklist, Long> {
 
-    @Query("select c from Checklist c where c.user = :user")
-    List<Checklist> findByUserId(User user);
+    List<Checklist> findByUserId(Long userId);
+
+    Optional<Checklist> findByName(String name);
 }

@@ -7,5 +7,7 @@ import java.util.List;
 public interface ScriptwritersService {
     List<Scriptwriter> getScriptwriters();
 
-    Scriptwriter getConcreteScriptwriter(Integer scriptwriterId);
+    Scriptwriter getConcreteScriptwriter(Long scriptwriterId);
+
+    List<Scriptwriter> getScriptwritersByFilm(Long filmId);
 }

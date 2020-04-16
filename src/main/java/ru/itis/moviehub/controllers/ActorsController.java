@@ -26,7 +26,7 @@ public class ActorsController {
     }
 
     @GetMapping("/{actor-id}")
-    public String getConcreteActor(@PathVariable("actor-id") Integer actorId, Model model) {
+    public String getConcreteActor(@PathVariable("actor-id") Long actorId, Model model) {
         Actor actor = actorsService.getConcreteActor(actorId);
         model.addAttribute("star", actor);
         return "star";

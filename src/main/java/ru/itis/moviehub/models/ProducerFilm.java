@@ -5,23 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "comments")
-public class Comment {
-
+@Table(name = "producer_film")
+public class ProducerFilm {
     @Id
-    @Column(name = "checklist_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "producer_id")
     private Long id;
-    private String user;
-    private String text;
-    private String date;
     @Column(name = "film_id")
     private Long filmId;
 }

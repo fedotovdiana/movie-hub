@@ -19,12 +19,12 @@ public class LikesServiceImpl implements LikesService {
     DislikesRepository dislikesRepository;
 
     @Override
-    public Long getLikes(Integer filmId) {
+    public Long getLikes(Long filmId) {
         return likesRepository.countByFilmId(filmId);
     }
 
     @Override
-    public Long getDislikes(Integer filmId) {
+    public Long getDislikes(Long filmId) {
         return dislikesRepository.countByFilmId(filmId);
     }
 

@@ -7,7 +7,7 @@ import ru.itis.moviehub.models.Dislike;
 public interface DislikesRepository extends JpaRepository<Dislike, Long> {
 
     @Query(value = "SELECT COUNT (*) FROM dislikes WHERE :filmId", nativeQuery = true)
-    Integer getDislikes(Integer filmId);
+    Integer getDislikes(Long filmId);
 
-    Long countByFilmId(Integer filmId);
+    Long countByFilmId(Long filmId);
 }

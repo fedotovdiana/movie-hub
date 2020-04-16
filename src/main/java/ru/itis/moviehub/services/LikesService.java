@@ -4,9 +4,9 @@ import ru.itis.moviehub.models.Film;
 import ru.itis.moviehub.models.User;
 
 public interface LikesService {
-    Long getLikes(Integer filmId);
+    Long getLikes(Long filmId);
 
-    Long getDislikes(Integer filmId);
+    Long getDislikes(Long filmId);
 
     void addLike(User user, Film film);
 

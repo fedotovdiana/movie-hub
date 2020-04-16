@@ -6,20 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('.delete').click(function () {
+                $('#delete').click(function () {
                     var name = $(this).attr('name');
                     $.ajax({
                         type: "post",
-                        url: "/removal",
+                        url: "/checklists/delete-film",
                         data: {
                             "film_id": name,
-                            "checklist_id": ${checklist.id_checklist}
+                            "checklist_id": ${checklist.id}
                         },
                         success: function () {
                             $('#' + name).fadeOut();
@@ -42,11 +42,12 @@
         <#list films as f>
             <div class="col-md-3">
                 <div class="card mb-4" id="${f.id}">
-                    <a href="#"><img src="../../front/img/${f.photo}" class="img-thumbnail" alt="..."></a>
+                    <a href="#"><img src="/img/${f.photo}" class="img-thumbnail" alt="..."></a>
                     <div class="card-body">
                         <ul class="list-unstyled text-center mb-2">
-                            <li><a href="/film?film_id=${f.id}&name=${f.name}" class="reg">${f.name}</a>
-                                <img src="../../front/svg/delete.svg" class="icon delete" name="${f.id}" alt="delete"></li>
+                            <li><a href="/films/${f.id}" class="reg">${f.name}</a>
+                                <img src="/svg/delete.svg" class="icon delete" id="delete" name="${f.id}" alt="delete">
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import ru.itis.moviehub.models.Like;
 public interface LikesRepository extends JpaRepository<Like, Long> {
 
     @Query(value = "SELECT COUNT (*) FROM likes WHERE film_id:filmId", nativeQuery = true)
-    Integer getLikes(Integer filmId);
+    Integer getLikes(Long filmId);
 
-    Long countByFilmId(Integer filmId);
+    Long countByFilmId(Long filmId);
 }

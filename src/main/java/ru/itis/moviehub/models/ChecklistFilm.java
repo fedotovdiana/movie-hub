@@ -5,20 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "checklists")
-public class Checklist {
+@Table(name = "checklist_film")
+public class ChecklistFilm {
     @Id
     @Column(name = "checklist_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "film_id")
+    private Long filmId;
 }

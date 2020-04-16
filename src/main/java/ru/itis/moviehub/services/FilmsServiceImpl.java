@@ -20,7 +20,7 @@ public class FilmsServiceImpl implements FilmsService {
     }
 
     @Override
-    public Film getConcreteFilm(Integer id) {
+    public Film getConcreteFilm(Long id) {
         return filmsRepository.getOne(id);
     }
 

@@ -7,7 +7,7 @@ import ru.itis.moviehub.models.Film;
 import java.util.Date;
 import java.util.List;
 
-public interface FilmsRepository extends JpaRepository<Film, Integer> {
+public interface FilmsRepository extends JpaRepository<Film, Long> {
 
     @Query("select f from Film f where f.date > :currentDate")
     List<Film> findAfisha(Date currentDate);

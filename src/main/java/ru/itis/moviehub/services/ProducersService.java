@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface ProducersService {
     List<Producer> getProducers();
-    Producer getConcreteProducer(Integer producerId);
+
+    Producer getConcreteProducer(Long producerId);
+
+    List<Producer> getProducersByFilm(Long filmId);
 }

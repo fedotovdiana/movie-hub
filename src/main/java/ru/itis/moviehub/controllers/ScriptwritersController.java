@@ -26,7 +26,7 @@ public class ScriptwritersController {
     }
 
     @GetMapping("/{scriptwriter-id}")
-    public String getConcreteUserPage(@PathVariable("scriptwriter-id") Integer scriptwriterId, Model model) {
+    public String getConcreteUserPage(@PathVariable("scriptwriter-id") Long scriptwriterId, Model model) {
         Scriptwriter scriptwriter = scriptwritersService.getConcreteScriptwriter(scriptwriterId);
         model.addAttribute("star", scriptwriter);
         return "star";

@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript">
@@ -18,7 +18,7 @@
                 var name = $(this).attr('name');
                 $.ajax({
                     type: "post",
-                    url: "/delete",
+                    url: "/checklists/delete",
                     data: {
                         "checklist_id": name
                     },
@@ -58,30 +58,13 @@
                         <h2><@spring.message 'profile.page.checklists'/></h2>
                         <#list checklists as c>
                             <div id="${c.id}">
-                                <p class="display-4"><a href="/checklist/${c.id}" class="reg">${c.name}  </a>
+                                <p class="display-4"><a href="/checklists/${c.id}" class="reg">${c.name} </a>
                                     <span><img src="/svg/delete.svg" class="icon delete" name="${c.id}"
                                                alt="delete"></span></p>
                             </div>
                         </#list>
                     </div>
                 </div>
-<#--                <h3 class="display-3">Recommendations</h3>-->
-<#--                <div class="container-fluid">-->
-<#--                    <div class="row">-->
-<#--                        <div class="col-md-3">-->
-<#--                            <a href="#"><img src="../img/f1.jpg" alt="..." class="img-thumbnail"></a>-->
-<#--                        </div>-->
-<#--                        <div class="col-md-3">-->
-<#--                            <a href="#"><img src="../img/f2.jpg" alt="..." class="img-thumbnail"></a>-->
-<#--                        </div>-->
-<#--                        <div class="col-md-3">-->
-<#--                            <a href="#"><img src="../img/f3.jpg" alt="..." class="img-thumbnail"></a>-->
-<#--                        </div>-->
-<#--                        <div class="col-md-3">-->
-<#--                            <a href="#"><img src="../img/f4.jpg" alt="..." class="img-thumbnail"></a>-->
-<#--                        </div>-->
-<#--                    </div>-->
-<#--                </div>-->
             </div>
         </form>
     </div>

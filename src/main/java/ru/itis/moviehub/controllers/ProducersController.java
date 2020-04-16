@@ -26,7 +26,7 @@ public class ProducersController {
     }
 
     @GetMapping("/{producer-id}")
-    public String getConcreteProducer(@PathVariable("producer-id") Integer producerId, Model model) {
+    public String getConcreteProducer(@PathVariable("producer-id") Long producerId, Model model) {
         Producer producer = producersService.getConcreteProducer(producerId);
         model.addAttribute("star", producer);
         return "star";

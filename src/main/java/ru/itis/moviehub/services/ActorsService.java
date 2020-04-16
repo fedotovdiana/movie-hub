@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface ActorsService {
     List<Actor> getActors();
-    Actor getConcreteActor(Integer id);
+
+    Actor getConcreteActor(Long id);
+
+    List<Actor> getActorsByFilm(Long filmId);
 }
