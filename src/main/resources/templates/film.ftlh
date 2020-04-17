@@ -51,7 +51,7 @@
                         "film_id": "${film.id}"
                     },
                     success: function () {
-                        $('#btn_like').val((parseInt($('#btn_like').val()) + 1) + " likes");
+                        $('#btn_like').val((parseInt($('#btn_like').val()) + 1) + " <@spring.message 'likes'/>");
                         $('#btn_like').attr("disabled", 'disabled');
                     }
                 });
@@ -65,7 +65,7 @@
                     },
                     success: function () {
                         alert("Click");
-                        $('#btn_dislike').val((parseInt($('#btn_dislike').val()) + 1) + " dislikes");
+                        $('#btn_dislike').val((parseInt($('#btn_dislike').val()) + 1) + " <@spring.message 'dislikes'/>");
                         $('#btn_dislike').attr("disabled", 'disabled');
                     }
                 });
