@@ -2,12 +2,18 @@ package ru.itis.moviehub.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -25,11 +31,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
+    @Autowired
+    private DataSource dataSource;
+
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);
+        return jdbcTokenRepository;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.csrf().disable();
-
+//        http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/signUp").permitAll()
@@ -46,8 +60,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/files").permitAll()
                 .antMatchers("/like").authenticated()
-                .antMatchers("/dislike").authenticated();
-
+                .antMatchers("/dislike").authenticated()
+                .antMatchers("/chat").authenticated()
+                .and()
+                .rememberMe()
+                .rememberMeParameter("remember-me")
+                .tokenRepository(persistentTokenRepository());
 
         http.formLogin()
                 .loginPage("/signIn")
@@ -56,13 +74,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("login")
                 .permitAll();
 
-        http.rememberMe()
-                .rememberMeCookieName("auth");
-
-        http.logout()
-                .deleteCookies("JSESSIONID")
+        http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/signIn")
-                .permitAll();
+                .deleteCookies("SESSION", "remember-me")
+                .invalidateHttpSession(true);
+
     }
 }
 

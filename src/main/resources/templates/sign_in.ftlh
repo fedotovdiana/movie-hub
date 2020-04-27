@@ -20,7 +20,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-offset-5 col-md-6">
             <form class="form-horizontal form" action="/signIn" method="post">
-                <#--                <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
+                <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <span class="heading"><@spring.message 'signIn.page.signIn'/></span>
                 <#if error??><h5><@spring.message 'signIn.page.error'/></h5></#if>
                 <div class="form-group help">
