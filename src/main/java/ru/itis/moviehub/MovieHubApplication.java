@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
@@ -45,13 +45,7 @@ public class MovieHubApplication {
 
     @Bean
     public TaskScheduler taskScheduler() {
-        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
-
-        scheduler.setPoolSize(3);
-        scheduler.setThreadNamePrefix("scheduled-task-");
-        scheduler.setDaemon(true);
-
-        return scheduler;
+        return new ConcurrentTaskScheduler(Executors.newSingleThreadScheduledExecutor());
     }
 
     public static void main(String[] args) {
