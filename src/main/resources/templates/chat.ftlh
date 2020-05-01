@@ -21,7 +21,6 @@
             crossorigin="anonymous"></script>
     <script>
         var webSocket;
-
         function connect() {
             webSocket = new WebSocket('ws://localhost/mychat');
             document.cookie = 'X-Authorization=' + '123456' + ';path=/';
@@ -32,10 +31,10 @@
             }
         }
 
-        function sendMessage(text, pageId) {
+        function sendMessage(text, name) {
             let message = {
                 "text": text,
-                "from": pageId
+                "from": name
             };
             webSocket.send(JSON.stringify(message));
             $('#message').val("");
@@ -45,21 +44,21 @@
 <body class="photo" onload="connect()">
 <@header/>
 <div class="container">
-    <div class="row">
-        <form class="form-horizontal profile">
-            <h2 class="heading"><@spring.message 'chat.page'/></h2>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <input name="message" id="message" placeholder="<@spring.message 'chat.enter'/>">
-                        <button onclick="sendMessage($('#message').val(), '${user.name}')"><@spring.message 'chat.send'/></button>
-                        <h4><@spring.message 'chat.messages'/></h4>
-                        <ul id="messagesList"></ul>
-                    </div>
+    <form class="form-horizontal profile">
+        <h2 class="heading"><@spring.message 'chat.page'/></h2>
+        <div class="container film">
+            <div class="row">
+                <div class="col-3">
+                    <input name="message" id="message" placeholder="<@spring.message 'chat.enter'/>">
+                    <button onclick="sendMessage($('#message').val(), '${user.name}')"><@spring.message 'chat.send'/></button>
+                </div>
+                <div class="col-9">
+                    <h4><@spring.message 'chat.messages'/></h4>
+                    <ul id="messagesList"></ul>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 </body>
 </html>
