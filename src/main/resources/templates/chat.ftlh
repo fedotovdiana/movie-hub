@@ -1,5 +1,4 @@
 <#include 'header.ftlh'>
-<#include 'libraries.ftlh'>
 <#import "spring.ftl" as spring />
 
 <!doctype html>
@@ -15,8 +14,7 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 
     <title><@spring.message 'chat.page'/></title>
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
     <script>
@@ -44,7 +42,7 @@
 <body class="photo" onload="connect()">
 <@header/>
 <div class="container">
-    <form class="form-horizontal profile">
+    <div class="form-horizontal profile">
         <h2 class="heading"><@spring.message 'chat.page'/></h2>
         <div class="container film">
             <div class="row">
@@ -58,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>
