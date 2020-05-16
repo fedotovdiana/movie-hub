@@ -47,6 +47,7 @@
             <form class="form-horizontal form" action="/settings" method="post" enctype="multipart/form-data">
                 <span class="heading"><@spring.message 'settings.page.settings'/></span>
                 <form>
+                    <input hidden="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <div class="form-group row">
                         <label for="staticName"
                                class="col-sm-2 col-xl-4 col-md-3 col-form-label"><@spring.message 'signUp.page.name'/></label>

@@ -1,7 +1,7 @@
 package ru.itis.moviehub.services;
 
-import ru.itis.moviehub.dto.SignUpDto;
+import ru.itis.moviehub.dto.SignUpForm;
 
 public interface SignUpService {
-    void signUp(SignUpDto form);
+    void signUp(SignUpForm form);
 }

@@ -31,14 +31,14 @@
                     </div>
                 </div>
                 <script type="application/javascript">
-                    function f() {
+                    function f(page) {
                         if ($("#query").val().length >= 1) {
                             $.ajax({
                                 url: "/films/search",
                                 data: {
                                     "query": $("#query").val(),
                                     "page": 0,
-                                    "size": 4
+                                    "size": 0
                                 },
                                 success: function (msg) {
                                     if (msg.length > 0) {
@@ -58,6 +58,9 @@
                                                 "                    </div>\n" +
                                                 "                </div>\n" +
                                                 "            </div>");
+                                        }
+                                        for (var i = 1; i <= msg.count; i++) {
+                                            $("#pages-button-spawn").append("<button class='like-disable' onclick=\"f(" + i + ")\"> " + i + "</button>");
                                         }
                                     } else {
                                         $("#res").html("<h2><a href='#'><@spring.message 'films.page.result'/></a></h2>");
@@ -102,9 +105,19 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </#list>
     </div>
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+    </nav>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

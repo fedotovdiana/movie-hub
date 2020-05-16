@@ -25,6 +25,7 @@ public class FileStorageController {
 
     @PostMapping("/files")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
+        System.out.println("FILESCONTROLLER");
         String filePath = service.saveFile(file);
         return ResponseEntity
                 .ok()

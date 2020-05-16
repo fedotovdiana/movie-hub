@@ -59,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/settings").authenticated()
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/files").permitAll()
+                .antMatchers("/files/**").permitAll()
                 .antMatchers("/like").authenticated()
                 .antMatchers("/dislike").authenticated()
                 .antMatchers("/chat").authenticated()

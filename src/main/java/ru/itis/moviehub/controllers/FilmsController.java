@@ -68,11 +68,10 @@ public class FilmsController {
 
     @GetMapping(path = "/search")
     @ResponseBody
-    public List<Film> searchFilms(@RequestParam("query") String query,
-                                  @RequestParam("page") Integer page,
-                                  @RequestParam("size") Integer size) {
-        FilmSearchResult result = filmsService.search(query, page, size);
-        return result.getFilms();
+    public FilmSearchResult searchFilms(@RequestParam("query") String query,
+                                        @RequestParam("page") Integer page,
+                                        @RequestParam("size") Integer size) {
+        return filmsService.search(query, page, size);
     }
 
     @PostMapping(path = "/like")

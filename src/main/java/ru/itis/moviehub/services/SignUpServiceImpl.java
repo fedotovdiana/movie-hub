@@ -3,7 +3,7 @@ package ru.itis.moviehub.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import ru.itis.moviehub.dto.SignUpDto;
+import ru.itis.moviehub.dto.SignUpForm;
 import ru.itis.moviehub.models.Role;
 import ru.itis.moviehub.models.State;
 import ru.itis.moviehub.models.User;
@@ -28,7 +28,7 @@ public class SignUpServiceImpl implements SignUpService {
     private ExecutorService executorService;
 
     @Override
-    public void signUp(SignUpDto form) {
+    public void signUp(SignUpForm form) {
         User user = User.builder()
                 .login(form.getLogin())
                 .hashPassword(passwordEncoder.encode(form.getPassword()))
